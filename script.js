@@ -177,3 +177,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     observer.observe(document.querySelector('.about-section'));
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.bottom-nav a');
+    const contactSection = document.getElementById('contact'); // Assuming you have an ID for your Contact section
+
+    // Smooth scrolling for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            let offset = -50; // Default offset value
+
+            // Only apply the custom offset for mobile screens and the contact section
+            if (targetId === 'contact' && window.innerWidth <= 768) {
+                offset = -150; // Adjust this value for the contact section on mobile
+            }
+
+            const topPosition = targetSection.getBoundingClientRect().top + window.pageYOffset + offset;
+            window.scrollTo({
+                top: topPosition,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
