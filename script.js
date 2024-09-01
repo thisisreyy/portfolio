@@ -94,8 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
             let offset = -50; // Default offset value
 
             // Check if the target section is the contact section
-            if (targetId === 'contact') {
-                offset = 30; // Adjust this value for the contact section to scroll a bit more
+            if (targetId === 'contact' && window.innerWidth > 768) {
+                offset = 60; // Adjust this value for the contact section on the web version
             }
 
             const topPosition = targetSection.getBoundingClientRect().top + window.pageYOffset + offset;
@@ -193,8 +193,12 @@ document.addEventListener('DOMContentLoaded', function() {
             let offset = -50; // Default offset value
 
             // Only apply the custom offset for mobile screens and the contact section
-            if (targetId === 'contact' && window.innerWidth <= 768) {
-                offset = -150; // Adjust this value for the contact section on mobile
+            if (targetId === 'contact') {
+                if (window.innerWidth > 768) {
+                    offset = 30; // Adjust this value for the contact section on the web version
+                } else {
+                    offset = -150; // Adjust this value for the contact section on mobile
+                }
             }
 
             const topPosition = targetSection.getBoundingClientRect().top + window.pageYOffset + offset;
