@@ -471,6 +471,10 @@ body {
     white-space: nowrap;
 }
 
+.short-text {
+    display: none;
+}
+
 .contact-box {
     background-color: #13132e;
     padding: 15px;
@@ -683,4 +687,342 @@ footer p {
 footer .copyright {
     font-size: 14px;
     margin-top: 10px;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+    /* Header Section */
+    .site-header {
+        padding: 10px 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #0c0c1e;
+        z-index: 1000;
+        margin-bottom: 0;
+    }
+
+    .header-text {
+        margin: 0;
+        font-size: 15px;
+    }
+
+    /* Home Section */
+    #home {
+        margin-bottom: 50px; /* Adjust this value to increase the gap below the Home section */
+    }
+
+    .home-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 200px);
+        text-align: center;
+        padding-top: 60px; /* Padding to account for the fixed header */
+        margin-top: 0;
+    }
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .intro h1,
+    .intro h2,
+    .intro p {
+        margin: 0; /* Remove any default margins */
+        padding: 0; /* Remove any default padding */
+        text-align: center;
+    }
+
+    .intro h1 {
+        font-size: 1em;
+    }
+
+    .intro h2 {
+        font-size: 1.63em;
+        color: #dadada;
+    }
+
+    .intro p {
+        font-size: 0.82em;
+        color: #949494;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+        margin-top: 20px;
+    }
+    
+    .buttons .btn,
+    .buttons .btn-outline {
+        width: 100px; /* Reduce the width */
+        padding: 12px 18px; /* Reduce the padding */
+        margin-bottom: 8px; /* Adjust spacing between buttons */
+        text-align: center;
+        font-size: 0.8em; /* Reduce the font size */
+        line-height: 1.2;
+    }
+    
+    .avatar {
+        margin-top: 1px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .avatar img {
+        width: 180px; /* Adjust size as needed */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 50%; /* Ensures the image remains circular */
+        object-fit: cover; /* Ensures the image covers the entire area without distortion */
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* About Section */
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .about-avatar {
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: -90px;
+        position: relative;
+        left: -100px; /* This already centers the avatar */
+    }
+
+    .about-avatar img {
+        width: 300px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .stat-boxes-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start; /* Align the container to the left */
+    }
+
+    .stat-boxes {
+        display: flex;
+        justify-content: flex-start; /* Align the stat boxes to the left */
+        max-width: 350px;
+        margin-bottom: 20px;
+        gap: 15px;
+        position: relative;
+        left: -107px; /* Move the stat boxes to the left */
+    }
+
+    .stat-box {
+        background-color: #151534;
+        padding: 8px;
+        border-radius: 10px;
+        text-align: center;
+        flex: 1;
+        font-size: 12px;
+        width: 100px;
+    }
+
+    .stat-icon {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 6px;
+    }
+
+    .stat-box h3 {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .stat-box p {
+        font-size: 10px;
+        margin-top: 2px;
+    }
+
+    .about-text {
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        left: -107px; /* Move the text content to the left */
+        font-size: 12px;
+    }
+
+    /* Projects Section */
+    .projects-container {
+        flex-direction: column;
+    }
+
+    .project-item {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .project-image {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    /* Technologies Section */
+    .tech-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px;
+    }
+
+    .content-section {
+        margin-top: 10px; /* Adds space between the Projects and Technologies sections */
+        padding-top: 450px; /* Adds padding inside the Technologies section */
+    }
+
+    .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 5px; /* Space between boxes */
+        font-size: 8px; /* Smaller text size */
+    }
+    
+    .project-tech span {
+        display: inline-flex;
+        align-items: left;
+        background-color: #151534; /* Box background color */
+        padding: 3px 6px; /* Smaller padding inside the box */
+        border-radius: 50px; /* Rounded corners */
+    }
+    
+    .project-tech img {
+        width: 10px; /* Smaller icon size */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 4px; /* Space between the icon and the text */
+    }
+
+    #technologies {
+        margin-bottom: 600px; /* Add more space below the Technologies section */
+    }
+    
+    #contact {
+        padding-top: 200px; /* Add more space above the Contact Me section */
+        margin-top: 100px; /* Ensure there is space above the section */
+        margin-bottom: 350px;
+    }
+
+    /* Contact Section */
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .contact-box {
+        background-color: #13132e;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        width: 250px;
+        transform: translateX(-1px); /* Moves the contact boxes slightly to the left */
+    }
+
+    .full-text {
+        display: none;
+    }
+    .short-text {
+        display: block;
+    }
+
+    .contact-form h2 {
+        position: relative; /* Ensure it can be moved relative to its current position */
+        left: -10px;
+    }
+
+    .contact-form .form-group {
+        margin-left: -17px; /* Adjust this value to slightly shift the form elements to the left */
+    }
+    
+    .contact-form button.btn-primary {
+        margin-left: -17px; /* Align the button with the rest of the form elements */
+        font-size: 16px;
+    }
+
+    /* Adjust footer and social links */
+    footer {
+        display: flex;
+        justify-content: center; /* Center the content horizontally */
+        align-items: center; /* Center the content vertically */
+        flex-direction: column; /* Stack the text vertically */
+        text-align: center; /* Ensure text within each line is centered */
+        padding: 10px 0; /* Adjust the padding if needed */
+        width: 100%;
+    }
+    
+    footer p {
+        margin: 5px 0; /* Adjusts spacing between the elements */
+    }
+
+    .social-links {
+        position: absolute;
+        bottom: 100px;
+        left: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .social-links a {
+        margin: 10px 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px; /* Reduce padding to make the icons smaller */
+        border-radius: 10px;
+        background-color: #151534;
+    }
+
+    .social-links img {
+        width: 15px; /* Reduce the width of all icons */
+        height: 15px; /* Ensure the height matches the width */
+        display: block;
+        margin: 0 auto;
+    }
+
+    .social-links a[href*="instagram.com"] img {
+        width: 18.75px; /* Reduce Instagram icon size */
+        height: 18.75px; /* Ensure height matches the width */
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+        width: 80%;
+        max-width: 350px;
+    }
 }
