@@ -1,21 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { 
-  Code, 
-  Server, 
-  MessageSquareCode, 
-  Wrench,
-  // Tech icons from lucide-react
-  Database,
-  Globe,
-  Terminal,
-  FileCode,
-  Layers,
-  Cpu,
-  HardDrive,
-  Cloud,
-  GitBranch,
-  Monitor
-} from 'lucide-react';
 
 const TechStackSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -53,131 +36,50 @@ const TechStackSection: React.FC = () => {
   const techCategories = [
     {
       id: 'frontend',
-      title: 'Frontend',
-      icon: Code,
-      color: '#61DAFB', // React blue
+      title: 'Frontend Technologies',
       technologies: [
-        { 
-          name: 'HTML5', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/frontend/html-5-svgrepo-com.svg' // Path to SVG icon
-        },
-        { name: 'CSS3', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/frontend/css-3-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'JavaScript', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/frontend/javascript-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'React', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/frontend/react-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'Bootstrap', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/frontend/bootstrap-fill-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'Tailwind', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/frontend/tailwind-svgrepo-com.svg' // Path to SVG icon
-         }
+        { name: 'HTML5', svgPath: '/src/assets/frontend/html-5-svgrepo-com.svg' },
+        { name: 'CSS3', svgPath: '/src/assets/frontend/css-3-svgrepo-com.svg' },
+        { name: 'JavaScript', svgPath: '/src/assets/frontend/javascript-svgrepo-com.svg' },
+        { name: 'React', svgPath: '/src/assets/frontend/react-svgrepo-com.svg' },
+        { name: 'Bootstrap', svgPath: '/src/assets/frontend/bootstrap-fill-svgrepo-com.svg' },
+        { name: 'Tailwind', svgPath: '/src/assets/frontend/tailwind-svgrepo-com.svg' }
       ]
     },
     {
       id: 'backend',
-      title: 'Backend',
-      icon: Server,
-      color: '#68A063', // Node.js green
+      title: 'Backend Technologies',
       technologies: [
-        { name: 'Node.js', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/backend/node-js-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'MongoDB', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/backend/mongo-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'Flask', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/backend/flask-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'Django', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/backend/django-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'MySQL', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/backend/mysql-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'Apache', 
-          icon: 'svg', // Special marker for SVG
-          svgPath: '/src/assets/backend/apache-svgrepo-com.svg' // Path to SVG icon
-         }
+        { name: 'Node.js', svgPath: '/src/assets/backend/node-js-svgrepo-com.svg' },
+        { name: 'MongoDB', svgPath: '/src/assets/backend/mongo-svgrepo-com.svg' },
+        { name: 'Flask', svgPath: '/src/assets/backend/flask-svgrepo-com.svg' },
+        { name: 'Django', svgPath: '/src/assets/backend/django-svgrepo-com.svg' },
+        { name: 'MySQL', svgPath: '/src/assets/backend/mysql-svgrepo-com.svg' },
+        { name: 'Apache', svgPath: '/src/assets/backend/apache-svgrepo-com.svg' }
       ]
     },
     {
       id: 'languages',
-      title: 'Languages',
-      icon: MessageSquareCode,
-      color: '#F7DF1E', // JavaScript yellow
+      title: 'Programming Languages',
       technologies: [
-        { name: 'Python', 
-          icon: 'svg',
-          svgPath: '/src/assets/languages/python-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'Java', 
-          icon: 'svg',
-          svgPath: '/src/assets/languages/java-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'C#',
-          icon: 'svg', 
-          svgPath: '/src/assets/languages/Logo_C_sharp.svg.svg' // Path to SVG icon
-         },
-        { name: 'PHP',
-          icon: 'svg',
-          svgPath: '/src/assets/languages/php02-svgrepo-com.svg' // Path to SVG icon
-         },
-        { name: 'C', 
-          icon: 'svg',
-          svgPath: '/src/assets/languages/C_logo.svg' // Path to SVG icon
-         },
-        { name: 'C++', 
-          icon: 'svg',
-          svgPath: '/src/assets/languages/c++.svg' // Path to SVG icon
-         }
+        { name: 'Python', svgPath: '/src/assets/languages/python-svgrepo-com.svg' },
+        { name: 'Java', svgPath: '/src/assets/languages/java-svgrepo-com.svg' },
+        { name: 'C#', svgPath: '/src/assets/languages/Logo_C_sharp.svg.svg' },
+        { name: 'PHP', svgPath: '/src/assets/languages/php02-svgrepo-com.svg' },
+        { name: 'C', svgPath: '/src/assets/languages/C_logo.svg' },
+        { name: 'C++', svgPath: '/src/assets/languages/c++.svg' }
       ]
     },
     {
       id: 'tools',
       title: 'Tools & Technologies',
-      icon: Wrench,
-      color: '#FF6B35', // Orange
       technologies: [
-        { name: 'Git', 
-          icon: 'svg',
-          svgPath: '/src/assets/tools&tech/git-svgrepo-com.svg'
-         },
-        { name: 'AWS', 
-          icon: 'svg',
-          svgPath: '/src/assets/tools&tech/aws-svgrepo-com.svg'
-         },
-        { name: 'Linux', 
-          icon: 'svg',
-          svgPath: '/src/assets/tools&tech/linux-svgrepo-com.svg'
-         },
-        { name: 'Cloudflare', 
-          icon: 'svg',
-          svgPath: '/src/assets/tools&tech/cloudflare-svgrepo-com.svg'
-         },
-        { name: 'VSCode', 
-          icon: 'svg',
-          svgPath: '/src/assets/tools&tech/vscode-svgrepo-com.svg'
-         },
-        { name: 'SublimeText', 
-          icon: 'svg',
-          svgPath: '/src/assets/tools&tech/sublimetext-icon-svgrepo-com.svg'
-         }
+        { name: 'Git', svgPath: '/src/assets/tools&tech/git-svgrepo-com.svg' },
+        { name: 'AWS', svgPath: '/src/assets/tools&tech/aws-svgrepo-com.svg' },
+        { name: 'Linux', svgPath: '/src/assets/tools&tech/linux-svgrepo-com.svg' },
+        { name: 'Cloudflare', svgPath: '/src/assets/tools&tech/cloudflare-svgrepo-com.svg' },
+        { name: 'VSCode', svgPath: '/src/assets/tools&tech/vscode-svgrepo-com.svg' },
+        { name: 'SublimeText', svgPath: '/src/assets/tools&tech/sublimetext-icon-svgrepo-com.svg' }
       ]
     }
   ];
@@ -223,7 +125,6 @@ const TechStackSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-8 relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16 fade-up-element">
-          {/* Small grey text above heading */}
           <p 
             className="text-white/50 text-sm font-light tracking-[0.25em] mb-4 uppercase"
             style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
@@ -238,79 +139,62 @@ const TechStackSection: React.FC = () => {
         </div>
 
         {/* Tech Categories Grid - 2x2 Layout */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-          {techCategories.map((category, categoryIndex) => {
-            const IconComponent = category.icon;
-            
-            return (
-              <div
-                key={category.id}
-                className={`group bg-white/5 backdrop-blur-sm border border-[#D4B896]/30 rounded-2xl p-6 hover:bg-white/10 hover:border-[#D4B896]/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/5 fade-up-element fade-up-delay-${categoryIndex + 2}`}
-              >
-                {/* Category Header - CENTERED */}
-                <div className="flex items-center justify-center gap-4 mb-6">
-                  <div 
-                    className="p-3 rounded-xl transition-all duration-300 group-hover:scale-110"
-                    style={{ 
-                      backgroundColor: `${category.color}20`,
-                      border: `1px solid ${category.color}40`
-                    }}
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+          {techCategories.map((category, categoryIndex) => (
+            <div
+              key={category.id}
+              className={`fade-up-element fade-up-delay-${categoryIndex + 2}`}
+            >
+              {/* Category Title */}
+              <h3 className="text-xl md:text-2xl font-light text-[#D4B896] mb-8 text-center">
+                {category.title}
+              </h3>
+
+              {/* Technologies Grid - Clean 3x2 layout for 6 items */}
+              <div className="grid grid-cols-3 gap-8 justify-items-center">
+                {category.technologies.map((tech, techIndex) => (
+                  <div
+                    key={tech.name}
+                    className={`tech-icon-container tech-bob-${(techIndex % 6) + 1}`}
+                    title={tech.name}
                   >
-                    <IconComponent 
-                      className="w-6 h-6 transition-colors duration-300" 
-                      style={{ color: category.color }}
+                    <img 
+                      src={tech.svgPath} 
+                      alt={tech.name}
+                      className="w-12 h-12 md:w-16 md:h-16 transition-all duration-300 hover:scale-110 cursor-pointer"
                     />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-light text-white group-hover:text-white/90 transition-colors duration-300">
-                    {category.title}
-                  </h3>
-                </div>
-
-                {/* Technologies Grid - BIGGER CONTAINERS with CENTER ALIGNMENT */}
-                <div className="flex flex-wrap justify-center gap-3">
-                  {category.technologies.map((tech, techIndex) => (
-                    <div
-                      key={tech.name}
-                      className="tech-item bg-black/20 backdrop-blur-sm border border-[#D4B896]/20 rounded-full px-5 py-3 flex items-center justify-center gap-3 hover:bg-black/30 hover:border-[#D4B896]/40 transition-all duration-300 hover:scale-105"
-                    >
-                      {/* Tech Icon - Bigger size */}
-                      <div className="text-lg flex-shrink-0 tech-icon gentle-bob">
-                        {tech.icon === 'svg' ? (
-                          <img 
-                            src={tech.svgPath} 
-                            alt={tech.name}
-                            className="w-5 h-5"
-                          />
-                        ) : (
-                          <span>{tech.icon}</span>
-                        )}
-                      </div>
-                      
-                      {/* Tech Name - Bigger text, centered */}
-                      <span className="text-white/80 font-light text-sm hover:text-white transition-colors duration-300 whitespace-nowrap">
-                        {tech.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
 
       <style jsx>{`
-        .gentle-bob {
-          animation: gentleBob 4s ease-in-out infinite;
-        }
+        /* Staggered bobbing animations for tech icons */
+        .tech-bob-1 { animation: techBob 3s ease-in-out infinite; animation-delay: 0s; }
+        .tech-bob-2 { animation: techBob 3s ease-in-out infinite; animation-delay: 0.2s; }
+        .tech-bob-3 { animation: techBob 3s ease-in-out infinite; animation-delay: 0.4s; }
+        .tech-bob-4 { animation: techBob 3s ease-in-out infinite; animation-delay: 0.6s; }
+        .tech-bob-5 { animation: techBob 3s ease-in-out infinite; animation-delay: 0.8s; }
+        .tech-bob-6 { animation: techBob 3s ease-in-out infinite; animation-delay: 1s; }
 
-        @keyframes gentleBob {
+        @keyframes techBob {
           0%, 100% {
             transform: translateY(0px);
           }
           50% {
-            transform: translateY(-2px); /* Very gentle bobbing */
+            transform: translateY(-8px);
           }
+        }
+
+        .tech-icon-container {
+          transition: all 0.3s ease;
+        }
+
+        .tech-icon-container:hover {
+          transform: translateY(-4px) scale(1.1);
         }
       `}</style>
     </section>
