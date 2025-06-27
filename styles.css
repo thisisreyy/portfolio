@@ -1,0 +1,275 @@
+/* Global consistent bobbing animation */
+@keyframes consistentBob {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.consistent-bob {
+  animation: consistentBob 4s ease-in-out infinite;
+}
+
+/* Staggered bobbing for multiple elements */
+.consistent-bob-1 { animation: consistentBob 4s ease-in-out infinite; animation-delay: 0s; }
+.consistent-bob-2 { animation: consistentBob 4s ease-in-out infinite; animation-delay: 0.5s; }
+.consistent-bob-3 { animation: consistentBob 4s ease-in-out infinite; animation-delay: 1s; }
+.consistent-bob-4 { animation: consistentBob 4s ease-in-out infinite; animation-delay: 1.5s; }
+.consistent-bob-5 { animation: consistentBob 4s ease-in-out infinite; animation-delay: 2s; }
+.consistent-bob-6 { animation: consistentBob 4s ease-in-out infinite; animation-delay: 2.5s; }
+
+/* Individual Element Animation Classes */
+.fade-up-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-up-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for multiple elements */
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+.fade-up-delay-4 { transition-delay: 0.4s; }
+.fade-up-delay-5 { transition-delay: 0.5s; }
+.fade-up-delay-6 { transition-delay: 0.6s; }
+
+/* Section backgrounds remain static */
+.section-background {
+  opacity: 1;
+  transform: none;
+}
+
+/* Landing page background */
+.landing-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 80%, rgba(84, 81, 74, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(84, 81, 74, 0.1) 0%, transparent 50%),
+              linear-gradient(135deg, #000000 0%, #000000 50%, #54514a 100%);
+}
+
+/* Background textures */
+.metallic-texture {
+  background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 2%),
+                    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 0%, transparent 1%),
+                    linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.02) 49%, rgba(255,255,255,0.02) 51%, transparent 52%),
+                    linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.01) 49%, rgba(255,255,255,0.01) 51%, transparent 52%);
+  background-size: 60px 60px, 40px 40px, 20px 20px, 20px 20px;
+}
+
+.noise-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+.brushed-metal {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.03) 2px,
+    rgba(255,255,255,0.03) 4px
+  );
+}
+
+/* Section backgrounds */
+.section-background {
+  background: radial-gradient(circle at 20% 80%, rgba(84, 81, 74, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(84, 81, 74, 0.1) 0%, transparent 50%),
+              linear-gradient(135deg, #000000 0%, #000000 50%, #54514a 100%);
+}
+
+/* Header font style */
+.header-font {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Metallic text effect */
+.metallic-text {
+  background: linear-gradient(
+    135deg,
+    #f5f5f5 0%,
+    #e8e8e8 15%,
+    #ffffff 30%,
+    #d4d4d4 45%,
+    #f0f0f0 60%,
+    #e0e0e0 75%,
+    #ffffff 90%,
+    #f8f8f8 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: metallicShine 4s ease-in-out infinite;
+  text-shadow: 
+    0 1px 0 rgba(255,255,255,0.4),
+    0 2px 0 rgba(0,0,0,0.1),
+    0 3px 0 rgba(0,0,0,0.05),
+    0 4px 8px rgba(0,0,0,0.3);
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+}
+
+@keyframes metallicShine {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (-webkit-background-clip: text) {
+  .metallic-text {
+    color: #f5f5f5;
+    text-shadow: 
+      0 1px 0 rgba(255,255,255,0.4),
+      0 2px 0 rgba(0,0,0,0.1),
+      0 3px 0 rgba(0,0,0,0.05),
+      0 4px 8px rgba(0,0,0,0.3);
+  }
+}
+
+/* Navigation active state */
+.nav-item.active {
+  background-color: #98948A;
+  color: white;
+  box-shadow: 0 4px 20px rgba(152, 148, 138, 0.3);
+}
+
+.nav-item.active .nav-tooltip {
+  opacity: 0 !important;
+}
+
+/* Tech stack animations */
+.tech-badge {
+  animation: techGlow 2s ease-in-out infinite;
+}
+
+@keyframes techGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(212, 184, 150, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(212, 184, 150, 0.6));
+  }
+}
+
+/* NEVER-STOPPING synchronized bobbing animation for ALL tech icons */
+.synchronized-bob {
+  animation: synchronizedBob 3s ease-in-out infinite;
+  /* CRITICAL: Animation never pauses, never stops */
+  animation-play-state: running !important;
+}
+
+@keyframes synchronizedBob {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* On hover: Scale effect works independently of bobbing animation */
+.synchronized-bob:hover {
+  /* Animation NEVER stops - scale is handled by hover:scale-125 class */
+  animation-play-state: running !important;
+}
+
+/* Ensure all icons start animation at the same time */
+.tech-icon-container {
+  animation-delay: 0s;
+}
+
+/* Force animation to continue even during transitions */
+.synchronized-bob * {
+  animation-play-state: inherit !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4B896;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #CAA77D;
+}
+
+/* Loading animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+.animate-in {
+  animation: fadeIn 0.3s ease-out, zoomIn 0.3s ease-out;
+}
+
+/* Form validation styles */
+.border-red-400\/60 {
+  border-color: rgba(248, 113, 113, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1279px) {
+  .xl\:hidden {
+    display: none !important;
+  }
+  
+  .xl\:flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:hidden {
+    display: none !important;
+  }
+  
+  .xl\:flex {
+    display: flex !important;
+  }
+}
