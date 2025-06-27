@@ -203,7 +203,7 @@ const TechStackSection: React.FC = () => {
                       <img 
                         src={tech.svgPath} 
                         alt={tech.name}
-                        className="w-8 h-8 md:w-10 md:h-10 transition-transform duration-300 cursor-pointer synchronized-bob group-hover:scale-125"
+                        className="w-8 h-8 md:w-10 md:h-10 transition-transform duration-300 cursor-pointer synchronized-bob hover:scale-125"
                         style={{
                           filter: 'brightness(0.9) contrast(1.1)'
                         }}
@@ -240,11 +240,10 @@ const TechStackSection: React.FC = () => {
           }
         }
 
-        /* On hover: ONLY scale effect, bobbing CONTINUES */
-        .tech-icon-container:hover .synchronized-bob {
-          /* Animation NEVER stops - only add scale transform */
+        /* On hover: Scale effect works independently of bobbing animation */
+        .synchronized-bob:hover {
+          /* Animation NEVER stops - scale is handled by hover:scale-125 class */
           animation-play-state: running !important;
-          /* Scale is handled by the hover:scale-125 class */
         }
 
         /* Ensure all icons start animation at the same time */
