@@ -51,7 +51,10 @@ const TechStackSection: React.FC = () => {
         { name: 'JavaScript', svgPath: '/src/assets/frontend/javascript-svgrepo-com.svg' },
         { name: 'React', svgPath: '/src/assets/frontend/react-svgrepo-com.svg' },
         { name: 'Bootstrap', svgPath: '/src/assets/frontend/bootstrap-fill-svgrepo-com.svg' },
-        { name: 'Tailwind', svgPath: '/src/assets/frontend/tailwind-svgrepo-com.svg' }
+        { name: 'Tailwind', svgPath: '/src/assets/frontend/tailwind-svgrepo-com.svg' },
+        { name: 'Angular', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
+        { name: 'Vite', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg' },
+        { name: 'TypeScript', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' }
       ]
     },
     {
@@ -65,7 +68,10 @@ const TechStackSection: React.FC = () => {
         { name: 'Flask', svgPath: '/src/assets/backend/flask-svgrepo-com.svg' },
         { name: 'Django', svgPath: '/src/assets/backend/django-svgrepo-com.svg' },
         { name: 'MySQL', svgPath: '/src/assets/backend/mysql-svgrepo-com.svg' },
-        { name: 'Apache', svgPath: '/src/assets/backend/apache-svgrepo-com.svg' }
+        { name: 'Apache', svgPath: '/src/assets/backend/apache-svgrepo-com.svg' },
+        { name: 'Docker', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+        { name: 'PostgreSQL', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+        { name: 'Express.js', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' }
       ]
     },
     {
@@ -79,7 +85,10 @@ const TechStackSection: React.FC = () => {
         { name: 'C#', svgPath: '/src/assets/languages/Logo_C_sharp.svg.svg' },
         { name: 'PHP', svgPath: '/src/assets/languages/php02-svgrepo-com.svg' },
         { name: 'C', svgPath: '/src/assets/languages/C_logo.svg' },
-        { name: 'C++', svgPath: '/src/assets/languages/c++.svg' }
+        { name: 'C++', svgPath: '/src/assets/languages/c++.svg' },
+        { name: 'Rust', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg' },
+        { name: 'Kotlin', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg' },
+        { name: 'Haskell', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg' }
       ]
     },
     {
@@ -93,7 +102,10 @@ const TechStackSection: React.FC = () => {
         { name: 'Linux', svgPath: '/src/assets/tools&tech/linux-svgrepo-com.svg' },
         { name: 'Cloudflare', svgPath: '/src/assets/tools&tech/cloudflare-svgrepo-com.svg' },
         { name: 'VSCode', svgPath: '/src/assets/tools&tech/vscode-svgrepo-com.svg' },
-        { name: 'SublimeText', svgPath: '/src/assets/tools&tech/sublimetext-icon-svgrepo-com.svg' }
+        { name: 'SublimeText', svgPath: '/src/assets/tools&tech/sublimetext-icon-svgrepo-com.svg' },
+        { name: 'Figma', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+        { name: 'Photoshop', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-line.svg' },
+        { name: 'Netlify', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg' }
       ]
     }
   ];
@@ -181,8 +193,8 @@ const TechStackSection: React.FC = () => {
                   </h3>
                 </div>
 
-                {/* Technologies Grid - 3 rows x 2 columns layout for 6 items */}
-                <div className="grid grid-cols-2 grid-rows-3 gap-6 justify-items-center">
+                {/* Technologies Grid - 3x3 layout for 9 items */}
+                <div className="grid grid-cols-3 gap-6 justify-items-center">
                   {category.technologies.map((tech, techIndex) => (
                     <div
                       key={tech.name}
