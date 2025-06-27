@@ -143,7 +143,7 @@ const TechStackSection: React.FC = () => {
           {techCategories.map((category, categoryIndex) => (
             <div
               key={category.id}
-              className={`fade-up-element fade-up-delay-${categoryIndex + 2}`}
+              className={`bg-white/5 backdrop-blur-sm border border-[#D4B896]/30 rounded-2xl p-8 hover:bg-white/10 hover:border-[#D4B896]/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/5 fade-up-element fade-up-delay-${categoryIndex + 2}`}
             >
               {/* Category Title */}
               <h3 className="text-xl md:text-2xl font-light text-[#D4B896] mb-8 text-center">
@@ -151,18 +151,23 @@ const TechStackSection: React.FC = () => {
               </h3>
 
               {/* Technologies Grid - Clean 3x2 layout for 6 items */}
-              <div className="grid grid-cols-3 gap-8 justify-items-center">
+              <div className="grid grid-cols-3 gap-6 justify-items-center">
                 {category.technologies.map((tech, techIndex) => (
                   <div
                     key={tech.name}
-                    className={`tech-icon-container tech-bob-${(techIndex % 6) + 1}`}
-                    title={tech.name}
+                    className="tech-icon-container group relative"
                   >
                     <img 
                       src={tech.svgPath} 
                       alt={tech.name}
-                      className="w-12 h-12 md:w-16 md:h-16 transition-all duration-300 hover:scale-110 cursor-pointer"
+                      className="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 hover:scale-110 cursor-pointer synchronized-bob"
                     />
+                    
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                      {tech.name}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-black/80"></div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -172,29 +177,23 @@ const TechStackSection: React.FC = () => {
       </div>
 
       <style jsx>{`
-        /* Staggered bobbing animations for tech icons */
-        .tech-bob-1 { animation: techBob 3s ease-in-out infinite; animation-delay: 0s; }
-        .tech-bob-2 { animation: techBob 3s ease-in-out infinite; animation-delay: 0.2s; }
-        .tech-bob-3 { animation: techBob 3s ease-in-out infinite; animation-delay: 0.4s; }
-        .tech-bob-4 { animation: techBob 3s ease-in-out infinite; animation-delay: 0.6s; }
-        .tech-bob-5 { animation: techBob 3s ease-in-out infinite; animation-delay: 0.8s; }
-        .tech-bob-6 { animation: techBob 3s ease-in-out infinite; animation-delay: 1s; }
+        /* Synchronized bobbing animation for all tech icons */
+        .synchronized-bob {
+          animation: synchronizedBob 4s ease-in-out infinite;
+        }
 
-        @keyframes techBob {
+        @keyframes synchronizedBob {
           0%, 100% {
             transform: translateY(0px);
           }
           50% {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
           }
         }
 
-        .tech-icon-container {
-          transition: all 0.3s ease;
-        }
-
-        .tech-icon-container:hover {
-          transform: translateY(-4px) scale(1.1);
+        .tech-icon-container:hover .synchronized-bob {
+          animation-play-state: paused;
+          transform: translateY(-3px) scale(1.1);
         }
       `}</style>
     </section>
