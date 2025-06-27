@@ -1,4 +1,10 @@
 import React, { useEffect, useRef } from 'react';
+import { 
+  Code, 
+  Server, 
+  MessageSquareCode, 
+  Wrench
+} from 'lucide-react';
 
 const TechStackSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -37,6 +43,8 @@ const TechStackSection: React.FC = () => {
     {
       id: 'frontend',
       title: 'Frontend Technologies',
+      icon: Code,
+      color: '#61DAFB', // React blue
       technologies: [
         { name: 'HTML5', svgPath: '/src/assets/frontend/html-5-svgrepo-com.svg' },
         { name: 'CSS3', svgPath: '/src/assets/frontend/css-3-svgrepo-com.svg' },
@@ -49,6 +57,8 @@ const TechStackSection: React.FC = () => {
     {
       id: 'backend',
       title: 'Backend Technologies',
+      icon: Server,
+      color: '#68A063', // Node.js green
       technologies: [
         { name: 'Node.js', svgPath: '/src/assets/backend/node-js-svgrepo-com.svg' },
         { name: 'MongoDB', svgPath: '/src/assets/backend/mongo-svgrepo-com.svg' },
@@ -61,6 +71,8 @@ const TechStackSection: React.FC = () => {
     {
       id: 'languages',
       title: 'Programming Languages',
+      icon: MessageSquareCode,
+      color: '#F7DF1E', // JavaScript yellow
       technologies: [
         { name: 'Python', svgPath: '/src/assets/languages/python-svgrepo-com.svg' },
         { name: 'Java', svgPath: '/src/assets/languages/java-svgrepo-com.svg' },
@@ -73,6 +85,8 @@ const TechStackSection: React.FC = () => {
     {
       id: 'tools',
       title: 'Tools & Technologies',
+      icon: Wrench,
+      color: '#FF6B35', // Orange
       technologies: [
         { name: 'Git', svgPath: '/src/assets/tools&tech/git-svgrepo-com.svg' },
         { name: 'AWS', svgPath: '/src/assets/tools&tech/aws-svgrepo-com.svg' },
@@ -140,39 +154,57 @@ const TechStackSection: React.FC = () => {
 
         {/* Tech Categories Grid - 2x2 Layout */}
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
-          {techCategories.map((category, categoryIndex) => (
-            <div
-              key={category.id}
-              className={`bg-white/5 backdrop-blur-sm border border-[#D4B896]/30 rounded-2xl p-8 hover:bg-white/10 hover:border-[#D4B896]/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/5 fade-up-element fade-up-delay-${categoryIndex + 2}`}
-            >
-              {/* Category Title */}
-              <h3 className="text-xl md:text-2xl font-light text-[#D4B896] mb-8 text-center">
-                {category.title}
-              </h3>
-
-              {/* Technologies Grid - Clean 3x2 layout for 6 items */}
-              <div className="grid grid-cols-3 gap-6 justify-items-center">
-                {category.technologies.map((tech, techIndex) => (
-                  <div
-                    key={tech.name}
-                    className="tech-icon-container group relative"
+          {techCategories.map((category, categoryIndex) => {
+            const IconComponent = category.icon;
+            
+            return (
+              <div
+                key={category.id}
+                className={`bg-white/5 backdrop-blur-sm border border-[#D4B896]/30 rounded-2xl p-8 hover:bg-white/10 hover:border-[#D4B896]/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/5 fade-up-element fade-up-delay-${categoryIndex + 2}`}
+              >
+                {/* Category Header with Icon */}
+                <div className="flex items-center justify-center gap-4 mb-8">
+                  <div 
+                    className="p-3 rounded-xl transition-all duration-300"
+                    style={{ 
+                      backgroundColor: `${category.color}20`,
+                      border: `1px solid ${category.color}40`
+                    }}
                   >
-                    <img 
-                      src={tech.svgPath} 
-                      alt={tech.name}
-                      className="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 hover:scale-110 cursor-pointer synchronized-bob"
+                    <IconComponent 
+                      className="w-6 h-6 transition-colors duration-300" 
+                      style={{ color: category.color }}
                     />
-                    
-                    {/* Tooltip */}
-                    <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
-                      {tech.name}
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-black/80"></div>
-                    </div>
                   </div>
-                ))}
+                  <h3 className="text-xl md:text-2xl font-light text-white">
+                    {category.title}
+                  </h3>
+                </div>
+
+                {/* Technologies Grid - 3 rows x 2 columns layout for 6 items */}
+                <div className="grid grid-cols-2 grid-rows-3 gap-6 justify-items-center">
+                  {category.technologies.map((tech, techIndex) => (
+                    <div
+                      key={tech.name}
+                      className="tech-icon-container group relative"
+                    >
+                      <img 
+                        src={tech.svgPath} 
+                        alt={tech.name}
+                        className="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 hover:scale-110 cursor-pointer synchronized-bob"
+                      />
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                        {tech.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-black/80"></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
