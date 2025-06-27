@@ -71,7 +71,7 @@ const TechStackSection: React.FC = () => {
         { name: 'Apache', svgPath: '/src/assets/backend/apache-svgrepo-com.svg' },
         { name: 'Docker', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
         { name: 'PostgreSQL', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-        { name: 'Express.js', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' }
+        { name: 'Express.js', svgPath: '/src/assets/backend/express-js.svg' }
       ]
     },
     {
@@ -86,7 +86,7 @@ const TechStackSection: React.FC = () => {
         { name: 'PHP', svgPath: '/src/assets/languages/php02-svgrepo-com.svg' },
         { name: 'C', svgPath: '/src/assets/languages/C_logo.svg' },
         { name: 'C++', svgPath: '/src/assets/languages/c++.svg' },
-        { name: 'Rust', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg' },
+        { name: 'Rust', svgPath: '/src/assets/languages/rust-svgrepo-com.svg' },
         { name: 'Kotlin', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg' },
         { name: 'Haskell', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg' }
       ]
@@ -104,7 +104,7 @@ const TechStackSection: React.FC = () => {
         { name: 'VSCode', svgPath: '/src/assets/tools&tech/vscode-svgrepo-com.svg' },
         { name: 'SublimeText', svgPath: '/src/assets/tools&tech/sublimetext-icon-svgrepo-com.svg' },
         { name: 'Figma', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-        { name: 'Photoshop', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-line.svg' },
+        { name: 'Photoshop', svgPath: '/src/assets/tools&tech/photoshop-cc-logo-svgrepo-com.svg' },
         { name: 'Netlify', svgPath: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg' }
       ]
     }
@@ -204,6 +204,9 @@ const TechStackSection: React.FC = () => {
                         src={tech.svgPath} 
                         alt={tech.name}
                         className="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 hover:scale-110 cursor-pointer synchronized-bob"
+                        style={{
+                          filter: 'brightness(0.9) contrast(1.1)'
+                        }}
                       />
                       
                       {/* Tooltip */}
@@ -221,9 +224,9 @@ const TechStackSection: React.FC = () => {
       </div>
 
       <style jsx>{`
-        /* Synchronized bobbing animation for all tech icons */
+        /* Synchronized bobbing animation for ALL tech icons */
         .synchronized-bob {
-          animation: synchronizedBob 4s ease-in-out infinite;
+          animation: synchronizedBob 3s ease-in-out infinite;
         }
 
         @keyframes synchronizedBob {
@@ -231,13 +234,19 @@ const TechStackSection: React.FC = () => {
             transform: translateY(0px);
           }
           50% {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
           }
         }
 
+        /* Pause animation on hover and add scale effect */
         .tech-icon-container:hover .synchronized-bob {
           animation-play-state: paused;
-          transform: translateY(-3px) scale(1.1);
+          transform: translateY(-4px) scale(1.1);
+        }
+
+        /* Ensure all icons start animation at the same time */
+        .tech-icon-container {
+          animation-delay: 0s;
         }
       `}</style>
     </section>
