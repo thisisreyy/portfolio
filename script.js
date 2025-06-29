@@ -15,11 +15,11 @@ const roles = [
 let currentRoleIndex = 0;
 let isVisible = true;
 
-// Initialize EmailJS
-emailjs.init('gegier-Yoscu9d5Cj'); // Replace with your EmailJS public key
-
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize EmailJS with your public key
+  emailjs.init('gegier-Yoscu9d5Cj'); // Replace with your actual EmailJS public key
+  
   // Landing page animation trigger
   setTimeout(() => {
     setIsLandingLoaded(true);
@@ -270,11 +270,7 @@ function downloadCV() {
 // Contact form functionality
 function setupContactForm() {
   const form = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const submitText = document.getElementById('submit-text');
-  const sendIcon = document.getElementById('send-icon');
-  const errorMessage = document.getElementById('error-message');
-
+  
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     
@@ -297,7 +293,7 @@ function setupContactForm() {
     setFormLoading(true);
     
     try {
-      // EmailJS configuration
+      // EmailJS configuration - Replace these with your actual values
       const serviceId = 'service_bpwk6u9'; // Replace with your EmailJS Service ID
       const templateId = 'template_kzvd2nd'; // Replace with your EmailJS Template ID
       
@@ -380,8 +376,12 @@ function showFieldError(fieldName, message) {
   field.classList.remove('border-[#D4B896]/30');
   
   if (errorElement) {
-    errorElement.textContent = message;
+    const span = errorElement.querySelector('span');
+    if (span) {
+      span.textContent = message;
+    }
     errorElement.classList.remove('hidden');
+    errorElement.classList.add('flex');
   }
 }
 
@@ -394,6 +394,7 @@ function clearFieldError(fieldName) {
   
   if (errorElement) {
     errorElement.classList.add('hidden');
+    errorElement.classList.remove('flex');
   }
 }
 
@@ -422,7 +423,7 @@ function setFormLoading(loading) {
     submitBtn.disabled = false;
     submitBtn.classList.remove('disabled:bg-[#D4B896]/50', 'disabled:cursor-not-allowed', 'disabled:hover:scale-100');
     
-    sendIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>';
+    sendIcon.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>';
     submitText.textContent = 'Send Message';
   }
 }
@@ -431,7 +432,7 @@ function setFormSuccess() {
   const submitText = document.getElementById('submit-text');
   const sendIcon = document.getElementById('send-icon');
   
-  sendIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>';
+  sendIcon.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
   submitText.textContent = 'Message Sent!';
 }
 
@@ -440,7 +441,7 @@ function setFormError() {
   const sendIcon = document.getElementById('send-icon');
   const errorMessage = document.getElementById('error-message');
   
-  sendIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>';
+  sendIcon.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
   submitText.textContent = 'Try Again';
   
   errorMessage.classList.remove('hidden');
