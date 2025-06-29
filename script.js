@@ -263,8 +263,8 @@ function scrollToAbout() {
 }
 
 function downloadCV() {
-  // Replace with your actual CV URL
-  window.open('/path-to-your-cv.pdf', '_blank');
+  // Open Google Drive CV link in new tab
+  window.open('https://drive.google.com/file/d/1xl_mFMII-emoDfA3ogJRoyLevhQwT9Rr/view?usp=sharing', '_blank');
 }
 
 // Contact form functionality
