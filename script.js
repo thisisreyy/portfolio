@@ -105,8 +105,8 @@ function handleScroll() {
   const footerThreshold = documentHeight - windowHeight * 1.2;
   const isInFooterArea = scrollPosition >= footerThreshold;
   
-  // Only show social icons in header on desktop when in footer area
-  const newShowSocialInHeader = isInFooterArea && window.innerWidth >= 1280; // xl breakpoint
+  // Show social icons in header on mobile (always) or on desktop when in footer area
+  const newShowSocialInHeader = window.innerWidth < 1280 || (isInFooterArea && window.innerWidth >= 1280);
   
   if (newShowSocialInHeader !== showSocialInHeader) {
     showSocialInHeader = newShowSocialInHeader;
@@ -142,7 +142,8 @@ function handleResize() {
   const footerThreshold = documentHeight - windowHeight * 1.2;
   const isInFooterArea = scrollPosition >= footerThreshold;
   
-  const newShowSocialInHeader = isInFooterArea && window.innerWidth >= 1280;
+  // Show social icons in header on mobile (always) or on desktop when in footer area
+  const newShowSocialInHeader = window.innerWidth < 1280 || (isInFooterArea && window.innerWidth >= 1280);
   
   if (newShowSocialInHeader !== showSocialInHeader) {
     showSocialInHeader = newShowSocialInHeader;
