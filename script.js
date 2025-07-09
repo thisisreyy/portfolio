@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Setup contact form
   setupContactForm();
 
+  // Setup 3D carousel
+  setup3DCarousel();
+
   // Setup navigation
   updateNavigation();
 });
