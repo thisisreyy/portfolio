@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Setup contact form
   setupContactForm();
 
+  // Setup 3D carousel
+  setup3DCarousel();
+
   // Setup navigation
   updateNavigation();
 });
@@ -456,6 +459,176 @@ function showThankYouModal() {
 function closeThankYouModal() {
   const modal = document.getElementById('thank-you-modal');
   modal.classList.add('hidden');
+}
+
+// 3D Carousel functionality
+function setup3DCarousel() {
+  const carousel = document.getElementById('projects-carousel');
+  const cards = document.querySelectorAll('.carousel-card');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const indicators = document.querySelectorAll('.indicator');
+  
+  let currentIndex = 0;
+  let isDragging = false;
+  let startX = 0;
+  let currentRotation = 0;
+  let rotationSpeed = 72; // 360 / 5 cards
+  
+  // Update carousel rotation
+  function updateCarousel() {
+    const rotation = -currentIndex * rotationSpeed;
+    carousel.style.transform = `rotateY(${rotation}deg)`;
+    
+    // Update indicators
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === currentIndex);
+    });
+    
+    // Update card visibility and scale
+    cards.forEach((card, index) => {
+      const isActive = index === currentIndex;
+      const distance = Math.abs(index - currentIndex);
+      const minDistance = Math.min(distance, cards.length - distance);
+      
+      if (isActive) {
+        card.style.filter = 'brightness(1) blur(0px)';
+        card.style.transform = card.style.transform.replace(/scale\([^)]*\)/, '') + ' scale(1)';
+      } else if (minDistance === 1) {
+        card.style.filter = 'brightness(0.7) blur(1px)';
+        card.style.transform = card.style.transform.replace(/scale\([^)]*\)/, '') + ' scale(0.9)';
+      } else {
+        card.style.filter = 'brightness(0.4) blur(2px)';
+        card.style.transform = card.style.transform.replace(/scale\([^)]*\)/, '') + ' scale(0.8)';
+      }
+    });
+  }
+  
+  // Navigate to specific index
+  function goToSlide(index) {
+    currentIndex = index;
+    updateCarousel();
+  }
+  
+  // Next slide
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCarousel();
+  }
+  
+  // Previous slide
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    updateCarousel();
+  }
+  
+  // Mouse drag functionality
+  function handleMouseDown(e) {
+    isDragging = true;
+    startX = e.clientX;
+    carousel.style.cursor = 'grabbing';
+    e.preventDefault();
+  }
+  
+  function handleMouseMove(e) {
+    if (!isDragging) return;
+    
+    const deltaX = e.clientX - startX;
+    const threshold = 50; // Minimum drag distance to trigger rotation
+    
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX > 0) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+      isDragging = false;
+      carousel.style.cursor = 'grab';
+    }
+  }
+  
+  function handleMouseUp() {
+    isDragging = false;
+    carousel.style.cursor = 'grab';
+  }
+  
+  // Touch functionality for mobile
+  function handleTouchStart(e) {
+    startX = e.touches[0].clientX;
+  }
+  
+  function handleTouchMove(e) {
+    if (!startX) return;
+    
+    const deltaX = e.touches[0].clientX - startX;
+    const threshold = 50;
+    
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX > 0) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+      startX = null;
+    }
+  }
+  
+  // Card flip functionality
+  function handleCardClick(e) {
+    const card = e.currentTarget;
+    const cardIndex = Array.from(cards).indexOf(card);
+    
+    // If clicking on the active card, flip it
+    if (cardIndex === currentIndex) {
+      card.classList.toggle('flipped');
+    } else {
+      // If clicking on a non-active card, navigate to it
+      goToSlide(cardIndex);
+    }
+  }
+  
+  // Event listeners
+  carousel.addEventListener('mousedown', handleMouseDown);
+  document.addEventListener('mousemove', handleMouseMove);
+  document.addEventListener('mouseup', handleMouseUp);
+  
+  carousel.addEventListener('touchstart', handleTouchStart);
+  carousel.addEventListener('touchmove', handleTouchMove);
+  
+  // Button controls
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
+  
+  // Indicator controls
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => goToSlide(index));
+  });
+  
+  // Card click handlers
+  cards.forEach(card => {
+    card.addEventListener('click', handleCardClick);
+  });
+  
+  // Auto-rotation (optional)
+  let autoRotateInterval;
+  
+  function startAutoRotate() {
+    autoRotateInterval = setInterval(nextSlide, 5000); // Rotate every 5 seconds
+  }
+  
+  function stopAutoRotate() {
+    clearInterval(autoRotateInterval);
+  }
+  
+  // Start auto-rotation
+  startAutoRotate();
+  
+  // Pause auto-rotation on hover
+  carousel.addEventListener('mouseenter', stopAutoRotate);
+  carousel.addEventListener('mouseleave', startAutoRotate);
+  
+  // Initialize carousel
+  updateCarousel();
 }
 
 // Make functions globally available
