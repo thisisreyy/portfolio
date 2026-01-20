@@ -265,7 +265,7 @@ function scrollToAbout() {
 
 function downloadCV() {
   // Open Google Drive CV link in new tab
-  window.open('https://drive.google.com/file/d/1xl_mFMII-emoDfA3ogJRoyLevhQwT9Rr/view?usp=sharing', '_blank');
+  window.open('https://drive.google.com/file/d/1b7_9QUB3zDSAlnd39q6TGSXxngegKbwO/view?usp=sharing', '_blank');
 }
 
 // Contact form functionality
